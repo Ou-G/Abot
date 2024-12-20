@@ -1,0 +1,15 @@
+<launch>
+  <arg name="goal_x"               default="4.0"/>
+  <arg name="goal_y"               default="4.0"/>
+  <node pkg="Abot" type="straight_mv" name="straight_mv" output="screen">
+    <param name="goal_x" value="$(arg goal_x)"/>
+    <param name="goal_y" value="$(arg goal_y)"/>
+  </node>
+  <!-- ロボットのモデルをロード -->
+  <arg name="model" default="waffle" />
+  <param name="robot_description" command="$(find xacro)/xacro $(find turtlebot3_description)/urdf/turtlebot3_$(arg model).urdf.xacro" />
+
+  <!-- RVizの起動 -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find turtlebot3_description)/rviz/model.rviz" output="screen"/>
+
+</launch>
