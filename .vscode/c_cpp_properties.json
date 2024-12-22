@@ -1,0 +1,28 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/ubuntu/catkin_ws/devel/include/**",
+        "/opt/ros/melodic/include/**",
+        "/home/ubuntu/catkin_ws/src/my_global_planner/a_star_global_planner/include/**",
+        "/home/ubuntu/catkin_ws/src/beginner_tutorials/include/**",
+        "/home/ubuntu/catkin_ws/src/potbot_core/potbot_base/include/**",
+        "/home/ubuntu/catkin_ws/src/potbot_core/potbot_lib/include/**",
+        "/home/ubuntu/catkin_ws/src/potbot_core/potbot_plugin/include/**",
+        "/home/ubuntu/catkin_ws/src/robot_setup_tf/include/**",
+        "/home/ubuntu/catkin_ws/src/turtlebot3/turtlebot3_slam/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}
