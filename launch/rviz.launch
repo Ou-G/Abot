@@ -2,8 +2,11 @@
   <arg name="model"                           default="waffle_pi"/>
   <arg name="file_urdf"                       default="$(find turtlebot3_description)/urdf/turtlebot3_$(arg model).urdf.xacro"/>
   <arg name="urdf_file"               value="$(find xacro)/xacro --inorder '$(arg file_urdf)'"/>
+  <arg name="file_rviz"                       default="$(find Abot)/rviz/rviz.rviz"/>
   <param name="robot_description" command="$(arg urdf_file)" />
 
-  <!-- RVizの起動
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find turtlebot3_description)/rviz/model.rviz" output="screen"/> -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+  <!-- RVizの起動 -->
+  <node name="rviz" pkg="rviz" type="rviz" required="true" args="-d $(arg file_rviz)"/>
 </launch>
