@@ -23,10 +23,10 @@ public:
           odom_received_(false), goal_received_(false) {
         
         // cmd_velパブリッシャー
-        cmd_vel_pub_ = nh_.advertise<geometry_msgs::Twist>("/robot_0/cmd_vel", 10);
+        cmd_vel_pub_ = nh_.advertise<geometry_msgs::Twist>("/robot_1/cmd_vel", 10);
 
         // オドメトリサブスクライバー
-        odom_sub_ = nh_.subscribe("/robot_0/odom", 10, &StraightMove::odomCallback, this);
+        odom_sub_ = nh_.subscribe("/robot_1/odom", 10, &StraightMove::odomCallback, this);
 
         // ゴールサブスクライバー
         goal_sub_ = nh_.subscribe("/move_base_simple/goal", 10, &StraightMove::goalCallback, this);

@@ -4,16 +4,18 @@
 
 void clockCallback(const rosgraph_msgs::Clock::ConstPtr& clock_msg) {
   static ros::NodeHandle nh("~");
-  static ros::Publisher cmd_pub = nh.advertise<geometry_msgs::Twist>("/robot_0/cmd_vel", 10);
-  float t = clock_msg->clock.toSec();
-  ROS_INFO("clockCallback: %f", t);
+  static ros::Publisher cmd_pub = nh.advertise<geometry_msgs::Twist>("/robot_1/cmd_vel", 10);
+  // float t = clock_msg->clock.toSec();
+  // ROS_INFO("clockCallback: %f", t);
+  float v = 0.2;
+  nh.getParam("v", v);
   geometry_msgs::Twist vel_msg;
-  vel_msg.linear.x = 0.2;
-  float amplitude = 2;
-  float period = 5;
-  nh.getParam("amplitude", amplitude);
-  nh.getParam("period", period);
-  vel_msg.angular.z = amplitude * sin(2 * M_PI * t / period);
+  vel_msg.linear.x = v;
+  // float amplitude = 2;
+  // float period = 5;
+  // nh.getParam("amplitude", amplitude);
+  // nh.getParam("period", period);
+  // vel_msg.angular.z = amplitude * sin(2 * M_PI * t / period);
   ROS_INFO("publish: %f", vel_msg.linear.x);
   cmd_pub.publish(vel_msg);
 }

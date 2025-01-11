@@ -7,7 +7,7 @@
   <arg name="yaw"                             default="0"/>
   <arg name="db"                              default="rtabmap"/>
   <arg name="reset"                           default="true"/>
-  <arg name="v"                               default="0.2"/>
+  <arg name="v"                               default="0.3"/>
   <arg name="omega"                           default="1.0"/>
   <arg name="fwd"                             default="true"/>
 
@@ -81,10 +81,12 @@
       <!-- <arg name="file_move_base_params"         value="$(find turtlebot3_navigation)/param/move_base_params.yaml"/> -->
       <!-- <arg name="file_local_planner_params"     value="$(find turtlebot3_navigation)/param/dwa_local_planner_params_$(arg model).yaml"/> -->
 
-      <arg name="file_costmap_common_params"    value="$(find potbot_example)/config/navigation/costmap_common_params.yaml"/>
-      <arg name="file_global_costmap_params"    value="$(find potbot_example)/config/navigation/global_costmap_params.yaml"/>
+      <arg name="file_costmap_common_params"    value="$(find Abot)/config/costmap_common_params.yaml"/>
+      <arg name="file_global_costmap_params"    value="$(find Abot)/config/global_costmap_params.yaml"/>
+      <!-- <arg name="file_global_costmap_params"    value="$(find Abot)/config/global_costmap_params_state.yaml"/> -->
       <arg name="file_local_costmap_params"     value="$(find potbot_example)/config/navigation/local_costmap_params.yaml"/>
       <arg name="file_move_base_params"         value="$(find potbot_example)/config/navigation/move_base_params.yaml"/>
+      <arg name="file_global_planner_params"     default="$(find Abot)/config/global_planner_params.yaml"/>
       <arg name="file_local_planner_params"     value="$(find potbot_example)/config/navigation/dwa_local_planner_params.yaml"/>
       <!-- <arg name="file_local_planner_params"     value="$(find potbot_example)/config/navigation/pure_pursuit.yaml"/> -->
       <!-- <arg name="file_local_planner_params"     value="$(find potbot_example)/config/navigation/personal_space_dwa.yaml"/> -->

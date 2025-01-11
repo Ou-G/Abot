@@ -1,0 +1,8 @@
+<launch>
+  <arg name="goal_x"               default="2.0"/>
+  <arg name="goal_y"               default="0.0"/>
+  <node pkg="Abot" type="straight_mv" name="straight_mv" output="screen">
+    <param name="goal_x" value="$(arg goal_x)"/>
+    <param name="goal_y" value="$(arg goal_y)"/>
+  </node>
+</launch>

@@ -12,17 +12,20 @@
   <arg name="topic_goal"                    default="move_base_simple/goal"/>
   <arg name="move_forward_only"             default="false"/>
 
-  <arg name="file_costmap_common_params"    default="$(find potbot_example)/config/navigation/costmap_common_params.yaml"/>
-  <arg name="file_global_costmap_params"    default="$(find potbot_example)/config/navigation/global_costmap_params.yaml"/>
+  <arg name="file_costmap_common_params"    default="$(find Abot)/config/costmap_common_params.yaml"/>
+  <arg name="file_global_costmap_params"    default="$(find Abot)/config/global_costmap_params.yaml"/>
   <arg name="file_local_costmap_params"     default="$(find potbot_example)/config/navigation/local_costmap_params.yaml"/>
   <arg name="file_move_base_params"         default="$(find potbot_example)/config/navigation/move_base_params.yaml"/>
+  <arg name="file_global_planner_params"     default="$(find Abot)/config/global_planner_params.yaml"/>
   <arg name="file_local_planner_params"     default="$(find potbot_example)/config/navigation/dwa_local_planner_params.yaml"/>
+
 
   <!-- move_base -->
   <node pkg="move_base" type="move_base" respawn="false" name="move_base" clear_params="true" output="screen">
     <!-- default -->
-    <!-- <param name="base_global_planner" value="navfn/NavfnROS"/> -->
-    <param name="base_global_planner" value="a_star_global_planner/AStarGlobalPlanner"/>
+    <rosparam file="$(arg file_global_planner_params)" command="load" />
+    <param name="base_global_planner" value="navfn/NavfnROS"/>
+    <!-- <param name="base_global_planner" value="a_star_global_planner/AStarGlobalPlanner"/> -->
 
     <!-- <param name="base_global_planner" value="global_planner/GlobalPlanner"/> -->
     <!-- <param name="base_global_planner" value="potbot_nav/PotbotPlanner"/> -->

@@ -1,8 +1,10 @@
 <launch>
-  <arg name="robot_angular_amplitude"               default="1"/>
-  <arg name="robot_angular_period"               default="6.28"/>
+  <!-- <arg name="robot_angular_amplitude"               default="0"/>
+  <arg name="robot_angular_period"               default="0"/> -->
+  <arg name="v"               default="0.3"/>
   <node pkg="Abot" type="straight_cmd" name="straight_cmd" output="screen">
-    <param name="amplitude" value="$(arg robot_angular_amplitude)"/>
-    <param name="period" value="$(arg robot_angular_period)"/>
+    <param name="v" value="$(arg v)"/>  
+    <!-- <param name="amplitude" value="$(arg robot_angular_amplitude)"/>
+    <param name="period" value="$(arg robot_angular_period)"/> -->
   </node>
 </launch>

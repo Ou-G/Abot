@@ -16,5 +16,7 @@ include_directories(
 
 add_executable(straight_cmd src/straight_cmd.cpp)
 add_executable(straight_mv src/straight_mv.cpp)
+add_executable(moving_obstacle src/moving_obstacle.cpp)
 target_link_libraries(straight_cmd ${catkin_LIBRARIES})
 target_link_libraries(straight_mv ${catkin_LIBRARIES})
+target_link_libraries(moving_obstacle ${catkin_LIBRARIES})

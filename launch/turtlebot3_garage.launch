@@ -19,4 +19,16 @@
     <arg name="yaw"             value="1.57"/>
   </include>
 
+  <include file="$(find potbot_example)/launch/gazebo/spawn_model/spawn_turtlebot3.launch">
+    <arg name="tf_prefix"       value="robot_1"/>
+    <arg name="model"           value="waffle"/>
+    <arg name="laser_visual"    value="false"/>
+    <arg name="imu_visual"      value="false"/>
+    <arg name="camera_visual"   value="true"/>
+    <arg name="x_pos"           value="2"/>
+    <arg name="y_pos"           value="6"/>
+    <arg name="z_pos"           value="0.01"/>
+    <arg name="yaw"             value="-1.57"/>
+  </include>
+
 </launch>
