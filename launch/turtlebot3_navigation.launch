@@ -7,7 +7,7 @@
   <arg name="yaw"                             default="0"/>
   <arg name="db"                              default="rtabmap"/>
   <arg name="reset"                           default="true"/>
-  <arg name="v"                               default="0.3"/>
+  <arg name="v"                               default="0.2"/>
   <arg name="omega"                           default="1.0"/>
   <arg name="fwd"                             default="true"/>
 
@@ -31,7 +31,8 @@
   <arg name="initial_pose_y"                  default="$(arg y)"/>
   <arg name="initial_pose_yaw"                default="$(arg yaw)"/>
   <arg name="file_urdf"                       default="$(find turtlebot3_description)/urdf/turtlebot3_$(arg model).urdf.xacro"/>
-  <arg name="file_map"                        default="$(find potbot_example)/maps/garage.yaml"/>
+  <!-- <arg name="file_map"                        default="$(find potbot_example)/maps/garage.yaml"/> -->
+  <arg name="file_map"                        default="$(find Abot)/maps/empty_map.yaml"/>
   <!-- <arg name="file_rviz"                       default="$(find potbot_example)/rviz/navigation.rviz"/> -->
   <arg name="file_rviz"                       default="$(find Abot)/rviz/Abot.rviz"/>
   <arg name="file_database"                   default="~/.ros/$(arg db).db"/>
@@ -40,7 +41,7 @@
   <arg name="max_linear_velocity"             default="$(arg v)"/>
   <arg name="max_angular_velocity"            default="$(arg omega)"/>
   <arg name="move_forward_only"               default="$(arg fwd)"/>
-  
+
   <group ns="$(arg multi_robot)">
 
     <include file="$(find Abot)/launch/navigation.launch">

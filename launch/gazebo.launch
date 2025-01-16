@@ -1,11 +1,13 @@
 <launch>
-	<!-- Gazeboを起動する -->
-	  <include file="$(find gazebo_ros)/launch/empty_world.launch"/>
+  <arg name="world_name" default="$(find potbot_example)/worlds/actor.world"/>
 
-	<!-- xacroファイルをurdfに展開して，パラメータに格納 -->
-	<param name="robot_description" command=$"(find xacro)/xacro $(find robot_description)/urdf/robot/robot.urdf.xacro"/>
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <!-- <arg name="world_name" value="$(arg world_name)"/> -->
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+  </include>
 
-	<!-- "robot_description"パラメータに格納されたurdfをもとに，gazebo上にモデルを作成するプログラムを起動 -->
-	<node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model"
-	    args="-param robot_description -urdf -model myrobot"/>
 </launch>

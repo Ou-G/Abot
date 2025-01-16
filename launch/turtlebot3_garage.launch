@@ -3,7 +3,7 @@
   <!-- <arg name="world_name" default="$(find potbot_example)/worlds/willowgarage_2.world"/> -->
   <arg name="world_name" default="$(find Abot)/worlds/Abot.world"/>
 
-  <include file="$(find potbot_example)/launch/gazebo/gazebo.launch">
+  <include file="$(find Abot)/launch/gazebo.launch">
     <arg name="world_name"      value="$(arg world_name)"/>
   </include>
 
@@ -30,5 +30,9 @@
     <arg name="z_pos"           value="0.01"/>
     <arg name="yaw"             value="-1.57"/>
   </include>
+  
+  <include file="$(find Abot)/launch/localization.launch"/>
+
+  <!-- <node pkg="tf" type="static_transform_publisher" name="map_to_map_transform" args="0 0 0 0 0 0 robot_0/map robot_1/map 100" /> -->
 
 </launch>

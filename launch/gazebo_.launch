@@ -1,0 +1,11 @@
+<launch>
+	<!-- Gazeboを起動する -->
+	  <include file="$(find gazebo_ros)/launch/empty_world.launch"/>
+
+	<!-- xacroファイルをurdfに展開して，パラメータに格納 -->
+	<param name="robot_description" command=$"(find xacro)/xacro $(find robot_description)/urdf/robot/robot.urdf.xacro"/>
+
+	<!-- "robot_description"パラメータに格納されたurdfをもとに，gazebo上にモデルを作成するプログラムを起動 -->
+	<node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model"
+	    args="-param robot_description -urdf -model myrobot"/>
+</launch>
